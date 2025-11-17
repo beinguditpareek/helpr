@@ -9,6 +9,8 @@ import { chatSocket } from './src/socket/chatSocket.js'
 import { createServer } from "http";
 import { Server } from "socket.io";
 import cookieParser from "cookie-parser";
+import helpRoutes from "./src/routes/helpRoutes.js";
+
 
 const app = express()
 app.use(cookieParser());
@@ -20,8 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-app.use("/help", userRouter)
+app.use("/user", userRouter)
 app.use("/chat", chatRouter)
+app.use("/help", helpRoutes);
 
 // Create HTTP server
 const server = createServer(app);
