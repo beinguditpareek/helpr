@@ -151,6 +151,12 @@ export const loginUser = async(req,res)=>{
            process.env.JWT_SECRET,
            { expiresIn: "7d" }
         );
+         // *** THIS IS WHERE YOU ADD COOKIE CODE ***
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: false, // local development
+      sameSite: "lax",
+    });
 
         return res.status(statusCode.OK).json({
             success:true,
