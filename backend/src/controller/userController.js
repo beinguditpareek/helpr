@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt'
 
 export const registerUser = async (req,res)=>{
     try {
-        console.log(req.body);
-        const {name,email,password,location,role} = req.body
+        // console.log(req.body);
+        const { name,email,password,location,role} = req.body
         
         
 
@@ -39,7 +39,7 @@ export const registerUser = async (req,res)=>{
         })
 
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         
         return res.status(500).json({
             success:false,
