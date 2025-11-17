@@ -79,6 +79,40 @@ try {
 // export default getAlluser
 
 
+// UPDATE USER --------------------------------------------------
+export const updateUser = async(req,res)=>{
+try {
+    
+    const {id} = req.params;
+
+    if(!id){
+        return res.status(statusCode.BAD_REQUEST).json({
+            success:false,
+            message:"This User Doesn't Exists",
+
+        })       
+    }
+
+    const updatedUser = await userModel.findByIdAndUpdate(id,req.body,{new:true})
+    return res.status(statusCode.OK).json({
+        success:true,
+        message:"User Update Succssfully",
+        updatedUser
+    })
+
+} catch (error) {
+    return res.status(statusCode.BAD_REQUEST).json({
+        success:false,
+        message:"Error In Update Api",
+        error:error.message
+
+    })
+    
+}
+}
+
+
+
 
 // LOGIN USER ----------------------------------------------------
 export const loginUser = async(req,res)=>{
