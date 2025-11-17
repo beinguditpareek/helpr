@@ -14,9 +14,11 @@ app.use(express.urlencoded({ extended: true }));
 dbconnection()
 
 app.use("/help", userRouter)
+=======
 
 
-const port = process.env.PORT || 3000
+
+const port = process.env.PORT 
 app.listen(port,()=>{
     console.log(`server is running on ${port}`);
     
