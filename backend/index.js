@@ -8,7 +8,10 @@ import chatRouter from './src/routes/chatRoute.js'
 import { chatSocket } from './src/socket/chatSocket.js'
 import { createServer } from "http";
 import { Server } from "socket.io";
+import cookieParser from "cookie-parser";
+
 const app = express()
+app.use(cookieParser());
 dotenv.config()
 app.use(bodyParser.json())
 app.use(express.json())

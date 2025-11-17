@@ -33,5 +33,9 @@ export const chatSocket = (io) => {
     socket.on("disconnect", () => {
       console.log("User disconnected:", socket.id);
     });
+    socket.on("messageRead", ({ roomId, messageId }) => {
+  io.to(roomId).emit("messageRead", { messageId, readAt: new Date() });
+});
+
   });
 };
