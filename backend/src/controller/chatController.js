@@ -1,4 +1,4 @@
-import chatModel from "../models/chatModel";
+import chatModel from "../models/chatModel.js";
 
 // send message
 
